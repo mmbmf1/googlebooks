@@ -1,17 +1,15 @@
 import React, { Component } from 'react';
-import SearchBar from './SearchBar/SearchBar';
+import Header from './Header/Header';
+import Search from '';
+import BookList from '';
 
  class App extends Component {
    render() {
     return (
       <div className='App'>
-        <header>
-          <h1>Google Book Search</h1>
-          <SearchBar />
-        </header>
-        <main>
-          {/* <ResultsList /> */}
-        </main>
+        <Header />
+        <Search />
+        <BookList />
       </div>
     );
   }
