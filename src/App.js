@@ -8,8 +8,6 @@ import SearchBar from './SearchBar/SearchBar';
         <header>
           <h1>Google Book Search</h1>
           <SearchBar />
-          {/* <PrintTypeFilter />
-          <BookTypeFilter /> */}
         </header>
         <main>
           {/* <ResultsList /> */}
