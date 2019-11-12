@@ -1,11 +1,9 @@
-import React, { Component } from 'react';
+import React from 'react';
 
-class Header extends Component {
-    render() {
-        return (
-            <header className='header'>Google Book Search</header>
-        )
-    }
+import './Header.css';
+
+export default function Header() {
+    return(
+        <header className='header'>Google Book Search</header>
+    )
 }
-
-export default Header;

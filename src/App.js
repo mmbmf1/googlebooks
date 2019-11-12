@@ -1,10 +1,11 @@
-import React, { Component } from 'react';
-import Header from './Header/Header';
-import Search from './Search/Search';
-import BookList from './BookList/BookList';
+import React from "react";
+import "./App.css";
 
- class App extends Component {
+import Header from "./Header/Header.js";
+import Search from "./Search/Search.js";
+import BookList from "./BookList/BookList";
 
+class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -12,47 +13,34 @@ import BookList from './BookList/BookList';
     };
   }
 
-handleSearch = (e, searchTerm, printType, bookType) => {
-
+  handleSearch = (e, searchTerm, printType, bookType) => {
     e.preventDefault();
-
-    const url = `https://www.googleapis.com/books/v1/volumes?q=${searchTerm}&key=AIzaSyA4DtRD-SqnCrYnGwbXCBXj-NfQOvmfxsE`;
-
-    console.log(searchTerm, printType, bookType);
-
-    fetch(url)
-      .then(res => {
-        if(!res.ok) {
-          throw new Error('Something went wrong, please try again later.')
-        }
-        return res;
-      })
+    console.log(searchTerm, "from handel", printType, bookType);
+    fetch(
+      `https://www.googleapis.com/books/v1/volumes?q=${searchTerm}&key=AIzaSyAQG9RGL_tzUq2rlmepUugyarJw-hjK5e0`
+    )
       .then(res => res.json())
-      .then(data => {
-        this.setState = ({
-          books: data
-        });
-      })
-      .catch(err => {
-        this.setState =({
-          error: err.message
+      .then(books => {
+        const booksArr = books.items;
+        this.setState({
+          books: booksArr
         });
       });
-  }
+  };
 
-
-   render() {
+  render() {
     return (
-      <div className='App'>
+      <>
         <Header />
         <Search
-          handleSearch={(e, searchTerm, printType, bookType) => this.handleSearch(e, searchTerm, printType, bookType)}
-          />
-        <BookList
-          books={this.state.books}
-          />
-      </div>
+          handleSearch={(e, searchTerm, printType, bookType) =>
+            this.handleSearch(e, searchTerm, printType, bookType)
+          }
+        />
+        <BookList books={this.state.books} />
+      </>
     );
   }
 }
+
 export default App;

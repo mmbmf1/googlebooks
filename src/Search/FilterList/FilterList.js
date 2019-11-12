@@ -1,29 +1,33 @@
-import React, { Component } from 'react';
+import React from "react";
 
-class FilterList extends Component {
-    render() {
-        return (
-            <div className='pages_filter'>
-                Print Type:
-                <select 
-                    id='print_type'
-                    name='print_type'
-                    onChange={e => this.props.updatePrintType(e.target.value)}>
-                    <option value='All'>All</option>
-                    <option value='Book'>Book</option>
-                </select>
-                Book Type:
-                <select
-                    id='book_type'
-                    name='book_type'
-                    onChange={e => this.props.updateBookType(e.target.value)}
-                    >
-                    <option value='None'>None</option>
-                    <option value='eBook'>eBook</option>
-                </select>
-            </div>
-        );
-    }
-};
+import "./FilterList.css";
 
-export default FilterList;
+export default class FilterList extends React.Component {
+  render() {
+    return (
+      <>
+        <div className="pages_filter">
+          {/*Is it a book? */}
+          Print Type:
+          <select
+            id="print-type"
+            name="print-type"
+            onChange={e => this.props.updatePrintType(e.target.value)}
+          >
+            <option value="all">All</option>
+            <option value="book">Book</option>
+          </select>
+          Book Type:
+          <select
+            id="book-type"
+            name="book-type"
+            onChange={e => this.props.updateBookType(e.target.value)}
+          >
+            <option value="none">No Filter</option>
+            <option value="ebook">E-Book</option>
+          </select>
+        </div>
+      </>
+    );
+  }
+}
