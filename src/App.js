@@ -12,8 +12,7 @@ import BookList from './BookList/BookList';
     };
   }
 
-handleSearch = (e, searchTerm, printType, bookType) => {
-
+handleSearch = (e, searchTerm, printType, bookType) => {// need to break this down with Jacob
     e.preventDefault();
 
     const url = `https://www.googleapis.com/books/v1/volumes?q=${searchTerm}&key=AIzaSyA4DtRD-SqnCrYnGwbXCBXj-NfQOvmfxsE`;
@@ -45,7 +44,7 @@ handleSearch = (e, searchTerm, printType, bookType) => {
     return (
       <div className='App'>
         <Header />
-        <Search
+        <Search //how does this function work?
           handleSearch={(e, searchTerm, printType, bookType) => this.handleSearch(e, searchTerm, printType, bookType)}
           />
         <BookList

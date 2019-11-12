@@ -42,7 +42,7 @@ updateBookType(newSelection) {
                             onClick={e => this.updateSearchTerm(e.target.value)} 
                         />                            
                         <button
-                            onClick={(e, searchTerm, printType, bookType) => 
+                            onClick={(e, searchTerm, printType, bookType) => //how is this working?
                                 this.props.handleSearch(e, this.state.searchTerm, this.state.printType, this.state.bookType)}
                         >
                         Search
